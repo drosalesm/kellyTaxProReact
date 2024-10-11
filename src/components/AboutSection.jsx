@@ -35,7 +35,7 @@ const AboutSection = () => {
 
               <div className="relative mt-4 animate__animated animate__fadeInUp">
                 <img src="https://via.placeholder.com/500x300" className="rounded-lg w-full h-auto object-cover" alt="About Us Video" />
-                <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" className="absolute inset-0 flex items-center justify-center">
+                <a href="https://www.youtube.com/watch?v=UDfKnhzWKz0" className="absolute inset-0 flex items-center justify-center">
                   <span className="bg-gray-700 text-white rounded-full p-3 hover:bg-gray-800 transition-all duration-300">
                     <i className="bi bi-play-circle-fill"></i>
                   </span>

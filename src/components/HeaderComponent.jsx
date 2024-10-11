@@ -119,7 +119,7 @@ const Header = () => {
 
       {/* Mobile Menu Modal */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center z-50">
+        <div className="fixed inset-0 text-white bg-gray-800 bg-opacity-75 flex justify-center items-center z-50">
           <div className="bg-green-900 p-8 rounded shadow-lg w-full max-w-md h-auto">
             <button
               onClick={toggleMobileMenu}
@@ -140,6 +140,19 @@ const Header = () => {
                   Home
                 </Link>
               </li>
+              <li className="flex items-center space-x-1">
+                <MiscellaneousServicesIcon />
+                <Link
+                  to="home"
+                  smooth={true}
+                  duration={500}
+                  className="hover:text-gray-400 cursor-pointer"
+                  onClick={toggleMobileMenu}
+                >
+                  Servicios
+                </Link>
+              </li>
+              
               <li className="flex items-center space-x-1">
                 <InfoIcon />
                 <Link

@@ -4,17 +4,21 @@ const HomeSection = () => {
   return (
     <section
       id="home"
-      className="flex flex-col md:flex-row items-stretch bg-gray-200 w-full h-[200px] md:h-[300px] lg:h-[400px] mb-9 md:mb-0" // Add mb-8 for margin bottom
+      className="flex flex-col md:flex-row items-stretch bg-gray-200 w-full h-[200px] md:h-[300px] lg:h-[400px] mb-9 md:mb-0"
     >
-      <div className="md:w-3/5 order-2 md:order-1 flex flex-col justify-center h-full p-6">
-        <div className="text-center md:text-center">
-          <h2 className="text-xl font-bold mb-2">Kelly Tax Pro.</h2>
-          <p className="text-lg text-gray-700">
-          Traducciones, notarias y mas.
-          </p>
-        </div>
+      {/* Left Side: Centered image with responsive width */}
+      <div className="mt-2 md:mt-0 lg:mt-0 md:w-3/5 order-2 md:order-1 flex justify-center items-center h-full border-2 md:border-0 border-gray-300 rounded-lg
+">
+        <img
+          src="/assets/img/logo.png" // Path to the new image
+          alt="New Display"
+          className="w-[60%] max-w-[200px] md:max-w-[60%] h-auto object-contain" // Set max width for smaller screens
+        />
       </div>
-      <div className="md:w-2/5 order-1 md:order-2 flex justify-center h-full">
+
+      {/* Right Side: Keep the original image */}
+      <div className="md:w-2/5 order-1 md:order-2 flex justify-center h-full border-2 md:border-0 border-gray-300 rounded-lg
+">
         <img
           src="/assets/img/kellyTeam.jpg"
           alt="Tax Service"
