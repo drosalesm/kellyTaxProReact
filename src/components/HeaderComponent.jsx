@@ -59,7 +59,7 @@ const Header = () => {
       </div>
 
       {/* Main Navbar */}
-      <nav className="bg-cyan-400 p-5 text-white">
+      <nav className="bg-teal-600 p-5 text-white">
         <div className="flex justify-between items-center font-serif">
           <div className="text-3xl">Tax Kelly Pro.</div>
           {/* Desktop Menu */}
@@ -69,7 +69,7 @@ const Header = () => {
                 to="home"
                 smooth={true}
                 duration={500}
-                className="hover:text-gray-400 flex items-center space-x-1 cursor-pointer"
+                className="hover:text-gray-900 flex items-center space-x-1 cursor-pointer"
               >
                 <HomeIcon />
                 <span>Inicio</span>
@@ -80,7 +80,7 @@ const Header = () => {
                 to="services"
                 smooth={true}
                 duration={500}
-                className="hover:text-gray-400 flex items-center space-x-1 cursor-pointer"
+                className="hover:text-gray-900 flex items-center space-x-1 cursor-pointer"
               >
                 <MiscellaneousServicesIcon />
                 <span>Servicios</span>
@@ -91,7 +91,7 @@ const Header = () => {
                 to="about"
                 smooth={true}
                 duration={500}
-                className="hover:text-gray-400 flex items-center space-x-1 cursor-pointer"
+                className="hover:text-gray-900 flex items-center space-x-1 cursor-pointer"
               >
                 <InfoIcon />
                 <span>Acerca de Nosotros</span>
@@ -102,7 +102,7 @@ const Header = () => {
                 to="contact"
                 smooth={true}
                 duration={500}
-                className="hover:text-gray-400 flex items-center space-x-1 cursor-pointer"
+                className="hover:text-gray-900 flex items-center space-x-1 cursor-pointer"
               >
                 <ContactMailIcon />
                 <span>Contactanos</span>
@@ -120,7 +120,7 @@ const Header = () => {
       {/* Mobile Menu Modal */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 text-white bg-gray-800 bg-opacity-75 flex justify-center items-center z-50">
-          <div className="bg-green-900 p-8 rounded shadow-lg w-full max-w-md h-auto">
+          <div className="bg-teal-600 p-8 rounded shadow-lg w-full max-w-md h-auto">
             <button
               onClick={toggleMobileMenu}
               className="absolute top-4 right-4 text-white"
@@ -134,7 +134,7 @@ const Header = () => {
                   to="home"
                   smooth={true}
                   duration={500}
-                  className="hover:text-gray-400 cursor-pointer"
+                  className="hover:text-gray-900 cursor-pointer"
                   onClick={toggleMobileMenu}
                 >
                   Home
@@ -146,7 +146,7 @@ const Header = () => {
                   to="home"
                   smooth={true}
                   duration={500}
-                  className="hover:text-gray-400 cursor-pointer"
+                  className="hover:text-gray-900 cursor-pointer"
                   onClick={toggleMobileMenu}
                 >
                   Servicios
@@ -159,7 +159,7 @@ const Header = () => {
                   to="about"
                   smooth={true}
                   duration={500}
-                  className="hover:text-gray-400 cursor-pointer"
+                  className="hover:text-gray-900 cursor-pointer"
                   onClick={toggleMobileMenu}
                 >
                   About
@@ -171,7 +171,7 @@ const Header = () => {
                   to="contact"
                   smooth={true}
                   duration={500}
-                  className="hover:text-gray-400 cursor-pointer"
+                  className="hover:text-gray-900 cursor-pointer"
                   onClick={toggleMobileMenu}
                 >
                   Contact
@@ -189,7 +189,7 @@ const Header = () => {
             to="home" // Adjust this to the section you want to scroll back to
             smooth={true}
             duration={500}
-            className="bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-700 transition duration-300"
+            className="bg-teal-600 text-white p-3 rounded-full shadow-lg hover:bg-slate-600 transition duration-300"
           >
             ↑
           </Link>

@@ -4,7 +4,7 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-12 md:py-16 bg-gray-100">
       <div className="container mx-auto text-center mb-3">
-        <h2 className="text-3xl font-bold mb-2 animate__animated animate__fadeInUp">About Us</h2>
+        <h2 className="text-3xl font-bold mb-2 animate__animated animate__fadeInUp">Acerca de nosotros</h2>
         <p className="text-gray-600 animate__animated animate__fadeInUp">Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
       </div>
       <div className="container mx-auto">
@@ -12,7 +12,7 @@ const AboutSection = () => {
           <div className="md:w-1/2">
             <h3 className="text-xl font-semibold mb-4 animate__animated animate__fadeInUp">Voluptatem dignissimos provident laboris nisi ut aliquip ex ea commodo</h3>
             <img 
-              src="https://via.placeholder.com/500x300" 
+              src="/assets/img/tonyKelly.jpg" 
               className="rounded-lg mb-4 w-full h-auto object-cover animate__animated animate__fadeInUp" 
               alt="About Us Image"
             />
@@ -34,8 +34,8 @@ const AboutSection = () => {
               </p>
 
               <div className="relative mt-4 animate__animated animate__fadeInUp">
-                <img src="https://via.placeholder.com/500x300" className="rounded-lg w-full h-auto object-cover" alt="About Us Video" />
-                <a href="https://www.youtube.com/watch?v=UDfKnhzWKz0" className="absolute inset-0 flex items-center justify-center">
+                <img src="/assets/img/logo.png" className="rounded-lg w-full h-auto object-cover" alt="About Us Video" />
+                <a className="absolute inset-0 flex items-center justify-center">
                   <span className="bg-gray-700 text-white rounded-full p-3 hover:bg-gray-800 transition-all duration-300">
                     <i className="bi bi-play-circle-fill"></i>
                   </span>

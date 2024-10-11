@@ -45,7 +45,7 @@ const ContactSection = () => {
               </div>
               <button 
                 type="submit" 
-                className="bg-green-900 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300"
+                className="bg-teal-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300"
               >
                 Send Message
               </button>
@@ -67,11 +67,11 @@ const ContactSection = () => {
               />
             </div>
             <p className="text-gray-700 mb-4 animate__animated animate__fadeInUp">
-              123 Main Street, Suite 456<br />Your City, Your State, 12345
+            565 Fulton Ave<br />Hempstead, NY 11550, Estados Unidos
             </p>
             <div className="relative animate__animated animate__fadeInUp">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345087224!2d144.95373521531827!3d-37.81720997975138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f0a12eb%3A0x5045675218ceed30!2sYour%20Location%20Here!5e0!3m2!1sen!2sau!4v1614070914975!5m2!1sen!2sau" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6048.61778340057!2d-73.61641029664624!3d40.71121610715559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c27d7687b916e1%3A0x76c308c0c01ac107!2sKelly%20Tax%20Pro!5e0!3m2!1ses-419!2shn!4v1728676708414!5m2!1ses-419!2shn" 
                 width="100%" 
                 height="300" 
                 style={{ border: 0 }} 

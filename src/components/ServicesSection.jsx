@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { IconButton } from "@mui/material";
 import { ExpandMore, ExpandLess, Accessibility, Assessment, AttachMoney } from "@mui/icons-material"; // Icons for cards
-import { Link } from "react-scroll"; // For smooth scrolling
 
 const animations = [
   'animate__fadeInUp',
@@ -16,22 +15,52 @@ const getRandomAnimation = () => {
 };
 
 const services = [
-  { title: 'Taxes', icon: <AttachMoney fontSize='large' />, link: 'tax-preparation', description: 'We offer professional tax preparation services.' },
-  { title: 'USCIS', icon: <Assessment fontSize='large'/>, link: 'consulting', description: 'Consulting services for USCIS processes.' },
-  { title: 'Cartas', icon: <Accessibility fontSize='large'/>, link: 'tax-planning', description: 'Assistance with official letters and documentation.' },
-  { title: 'DMV', icon: <Accessibility fontSize='large'/>, link: 'tax-planning', description: 'Help with DMV-related services.' },  
-  { title: 'Social Security', icon: <Accessibility fontSize='large'/>, link: 'tax-planning', description: 'Support with social security processes.' },   
-  { title: 'Social Service', icon: <Accessibility fontSize='large'/>, link: 'tax-planning', description: 'Guidance on social services.' },       
-  { title: 'Departamento de Labor', icon: <Accessibility fontSize='large'/>, link: 'tax-planning', description: 'Assistance with labor department formalities.' },         
+  { 
+    title: 'Taxes', 
+    icon: <AttachMoney className="text-teal-600" fontSize='large' />, 
+    description: 'ITIN, Auditorias, Acuerdos de Pago, Enmiendas, Récord de Taxes, ID.me, Llamadas al IRS, Asesoría' 
+  },
+  { 
+    title: 'USCIS', 
+    icon: <Assessment className="text-teal-600" fontSize='large'/>, 
+    description: 'Ciudadanías, Residencias, TPS, Asesoría de Visas' 
+  },
+  { 
+    title: 'Cartas', 
+    icon: <Accessibility className="text-teal-600" fontSize='large'/>, 
+    description: 'Asistencia con Cartas Oficiales, Documentación' 
+  },
+  { 
+    title: 'DMV', 
+    icon: <Accessibility className="text-teal-600" fontSize='large'/>, 
+    description: 'Licencias de Conducir, Renovación de Matrículas' 
+  },  
+  { 
+    title: 'Social Security', 
+    icon: <Accessibility className="text-teal-600" fontSize='large'/>, 
+    description: 'Procesos de Seguridad Social, Apoyo en Beneficios' 
+  },   
+  { 
+    title: 'Social Service', 
+    icon: <Accessibility className="text-teal-600" fontSize='large'/>, 
+    description: 'Guía de Servicios Sociales, Apoyo en Programas' 
+  },       
+  { 
+    title: 'Departamento de Labor', 
+    icon: <Accessibility className="text-teal-600" fontSize='large'/>, 
+    description: 'Formalidades del Departamento de Labor' 
+  },         
 ];
 
+// Individual service card
 const ServiceCard = ({ service, index, isExpanded, toggleCardExpand }) => {
   const [animation, setAnimation] = useState('');
 
-  // Apply animation only when the card first renders
   useEffect(() => {
     setAnimation(getRandomAnimation());
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, []);
+
+  const tasks = service.description.split(',');
 
   return (
     <div
@@ -39,8 +68,8 @@ const ServiceCard = ({ service, index, isExpanded, toggleCardExpand }) => {
       style={{
         animationDuration: '1.2s',
         animationDelay: `${index * 0.1}s`,
-        height: isExpanded ? '400px' : '350px', // Dynamic height
-        transition: 'height 0.3s ease-in-out' // Smooth height transition
+        height: isExpanded ? 'auto' : '350px',
+        transition: 'height 0.3s ease-in-out'
       }}
     >
       <div className="absolute top-2 right-2">
@@ -48,25 +77,31 @@ const ServiceCard = ({ service, index, isExpanded, toggleCardExpand }) => {
           {isExpanded ? <ExpandLess /> : <ExpandMore />}
         </IconButton>
       </div>
+
       <div className="text-4xl mb-4">{service.icon}</div>
       <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-      <p className="text-gray-700">{service.description}</p>
 
-      {/* Expanded content shown when card is expanded */}
-      {isExpanded && (
-        <div className="mt-4 text-gray-600 transition-all duration-300 ease-in-out">
-          <p>Here’s more detailed information about {service.title} service...</p>
-        </div>
+      {/* Task list with proper alignment */}
+      <ul className="text-gray-700 list-disc pl-5 mb-4 text-left">
+        {tasks.slice(0, isExpanded ? tasks.length : 3).map((task, idx) => (
+          <li key={idx} className="leading-relaxed">{task.trim()}</li> // Display tasks
+        ))}
+      </ul>
+
+      {/* Ellipsis in bottom-right corner when tasks are truncated */}
+      {!isExpanded && tasks.length > 3 && (
+        <div className="absolute bottom-2 right-4 text-gray-500 text-lg">...</div>
       )}
     </div>
   );
 };
 
+// Main services section
 const ServicesSection = () => {
-  const [expandedCard, setExpandedCard] = useState(null); // Track the expanded card
+  const [expandedCard, setExpandedCard] = useState(null);
 
   const toggleCardExpand = (index) => {
-    setExpandedCard(expandedCard === index ? null : index); // Toggle between expand/collapse
+    setExpandedCard(expandedCard === index ? null : index); 
   };
 
   return (
@@ -80,7 +115,7 @@ const ServicesSection = () => {
               key={index}
               service={service}
               index={index}
-              isExpanded={expandedCard === index} // Only expand the selected card
+              isExpanded={expandedCard === index}
               toggleCardExpand={toggleCardExpand}
             />
           ))}
