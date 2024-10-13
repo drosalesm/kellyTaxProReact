@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { IconButton } from "@mui/material";
-import { ExpandMore, ExpandLess, Accessibility, Assessment, AttachMoney } from "@mui/icons-material"; // Icons for cards
+import { ExpandMore, ExpandLess } from "@mui/icons-material"; // Icons for expand/collapse
 
 const animations = [
   'animate__fadeInUp',
@@ -14,40 +14,41 @@ const getRandomAnimation = () => {
   return animations[randomIndex];
 };
 
+// Updated services array to include subtitles
 const services = [
   { 
     title: 'Taxes', 
-    icon: <AttachMoney className="text-teal-600" fontSize='large' />, 
+    subtitle: 'Impuestos y Auditorías', // Added subtitle
     description: 'ITIN, Auditorias, Acuerdos de Pago, Enmiendas, Récord de Taxes, ID.me, Llamadas al IRS, Asesoría' 
   },
   { 
     title: 'USCIS', 
-    icon: <Assessment className="text-teal-600" fontSize='large'/>, 
+    subtitle: 'Servicios de Inmigración', // Added subtitle
     description: 'Ciudadanías, Residencias, TPS, Asesoría de Visas' 
   },
   { 
     title: 'Cartas', 
-    icon: <Accessibility className="text-teal-600" fontSize='large'/>, 
+    subtitle: 'Documentación Oficial', // Added subtitle
     description: 'Asistencia con Cartas Oficiales, Documentación' 
   },
   { 
     title: 'DMV', 
-    icon: <Accessibility className="text-teal-600" fontSize='large'/>, 
+    subtitle: 'Licencias y Matrículas', // Added subtitle
     description: 'Licencias de Conducir, Renovación de Matrículas' 
   },  
   { 
     title: 'Social Security', 
-    icon: <Accessibility className="text-teal-600" fontSize='large'/>, 
+    subtitle: 'Beneficios de Seguridad Social', // Added subtitle
     description: 'Procesos de Seguridad Social, Apoyo en Beneficios' 
   },   
   { 
     title: 'Social Service', 
-    icon: <Accessibility className="text-teal-600" fontSize='large'/>, 
+    subtitle: 'Apoyo a la Comunidad', // Added subtitle
     description: 'Guía de Servicios Sociales, Apoyo en Programas' 
   },       
   { 
     title: 'Departamento de Labor', 
-    icon: <Accessibility className="text-teal-600" fontSize='large'/>, 
+    subtitle: 'Asesoría Laboral', // Added subtitle
     description: 'Formalidades del Departamento de Labor' 
   },         
 ];
@@ -72,14 +73,23 @@ const ServiceCard = ({ service, index, isExpanded, toggleCardExpand }) => {
         transition: 'height 0.3s ease-in-out'
       }}
     >
-      <div className="absolute top-2 right-2">
+      <div className="absolute top-4 right-4">
         <IconButton onClick={() => toggleCardExpand(index)}>
-          {isExpanded ? <ExpandLess /> : <ExpandMore />}
+          {isExpanded ? <ExpandLess /> : <ExpandMore />} {/* Toggle icon */}
         </IconButton>
       </div>
 
-      <div className="text-4xl mb-4">{service.icon}</div>
-      <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+      <h3 className="text-xl font-bold mb-1">{service.title}</h3>
+      <h4 className="text-lg text-gray-600 mb-4">{service.subtitle}</h4> {/* Added subtitle */}
+
+      {/* Centered image placeholder */}
+      <div className="flex justify-center mb-4">
+        <img 
+          src="https://via.placeholder.com/150" 
+          alt="Service" 
+          className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-lg" 
+        /> {/* Sample image */}
+      </div>
 
       {/* Task list with proper alignment */}
       <ul className="text-gray-700 list-disc pl-5 mb-4 text-left">
@@ -105,10 +115,10 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-12 md:py-16 bg-gray-100 mt-24 md:mt-0 lg:mt-0 pt-28">
+    <section id="services" className="py-12 md:py-16 bg-gray-100 mt-4 md:mt-0 lg:mt-0 pt-20">
       <div className="container mx-auto text-center px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-4">Nuestros Servicios</h2>
-        <p className="text-gray-600 mb-8">We offer a range of tax services to meet your needs.</p>
+        <p className="text-gray-600 mb-8">Contamos con los siguientes servicios.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <ServiceCard

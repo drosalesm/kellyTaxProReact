@@ -10,7 +10,7 @@ import Footer from './components/FooterSection'
 
 const App = () => {
     return (
-        <div className='font-playfair'>
+        <div className='font-playfair bg-gray-100'>
             <Header />
             <Home />
             <Services />                        

@@ -1,46 +1,102 @@
-import React from 'react';
+import React from "react";
 
 const AboutSection = () => {
+  const personnel = [
+    { name: "Gerald A. Kelly", position: "Gerente Administrativo" },
+    { name: "Maholi Y. Kelly", position: "Gerente Administrativo" },
+    { name: "Grace Rivera", position: "Admin" },
+    { name: "Bryan Kelly", position: "Admin" },    
+    { name: "Luz Kelly", position: "Admin" },
+    { name: "Delmy Kelly", position: "Admin" },    
+    { name: "Walter Kelly ", position: "Admin" },  
+    { name: "Oscar Moradel ", position: "Admin" },            
+  ];
+
   return (
-    <section id="about" className="py-12 md:py-16 bg-gray-100">
-      <div className="container mx-auto text-center mb-3">
-        <h2 className="text-3xl font-bold mb-2 animate__animated animate__fadeInUp">Acerca de nosotros</h2>
-        <p className="text-gray-600 animate__animated animate__fadeInUp">Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+    <section id="about" className="py-8 bg-gray-100">
+      {/* Title and Subtitle Aligned at Center */}
+      <div className="container mx-auto text-center mb-3 px-4 sm:px-6">
+        <h2 className="text-3xl font-bold mb-2 animate__animated animate__fadeInUp">
+          Acerca de nosotros
+        </h2>
+        <p className="text-gray-600 animate__animated animate__fadeInUp">
+          Somos una empresa comprometida con el buen servicio calidad en nuestra atención.
+        </p>
       </div>
-      <div className="container mx-auto">
+
+      {/* Two Columns: Left and Right */}
+      <div className="container mx-auto px-4 sm:px-6 mt-4">
         <div className="flex flex-col md:flex-row gap-8">
+          {/* Left Column: Image first, then text */}
           <div className="md:w-1/2">
-            <h3 className="text-xl font-semibold mb-4 animate__animated animate__fadeInUp">Voluptatem dignissimos provident laboris nisi ut aliquip ex ea commodo</h3>
-            <img 
-              src="/assets/img/tonyKelly.jpg" 
-              className="rounded-lg mb-4 w-full h-auto object-cover animate__animated animate__fadeInUp" 
+            <img
+              src="/assets/img/tonyKelly.jpg"
+              className="rounded-lg mb-4 w-full h-auto object-cover animate__animated animate__fadeInUp"
               alt="About Us Image"
             />
-            <p className="text-gray-700 mb-4 animate__animated animate__fadeInUp">Ut fugiat ut sunt quia veniam. Voluptate perferendis perspiciatis quod nisi et. Placeat debitis quia recusandae odit et consequatur voluptatem. Dignissimos pariatur consectetur fugiat voluptas ea.</p>
-            <p className="text-gray-700 mb-4 animate__animated animate__fadeInUp">Temporibus nihil enim deserunt sed ea. Provident sit expedita aut cupiditate nihil vitae quo officia vel. Blanditiis eligendi possimus et in cum. Quidem eos ut sint rem veniam qui. Ut ut repellendus nobis tempore doloribus debitis explicabo similique sit. Accusantium sed ut omnis beatae neque deleniti repellendus.</p>
-          </div>
-          <div className="md:w-1/2">
-            <div className="content ps-0 ps-lg-5">
-              <p className="fst-italic text-gray-700 mb-4 animate__animated animate__fadeInUp">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <ul className="list-disc list-inside mb-4 animate__animated animate__fadeInUp">
-                <li className="text-gray-700"><i className="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                <li className="text-gray-700"><i className="bi bi-check-circle-fill"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                <li className="text-gray-700"><i className="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
-              </ul>
-              <p className="text-gray-700 mb-4 animate__animated animate__fadeInUp">
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-              </p>
+            <h3 className="text-xl text-center font-semibold mb-4 animate__animated animate__fadeInUp">
+              ¡Lo Kelly importa a usted… a nosotros también!
+            </h3>
+            <p className="text-gray-700 mb-4 animate__animated animate__fadeInUp">
+              Hoy en día nuestra compañía cuenta con el siguiente personal:
+            </p>
 
-              <div className="relative mt-4 animate__animated animate__fadeInUp">
-                <img src="/assets/img/logo.png" className="rounded-lg w-full h-auto object-cover" alt="About Us Video" />
-                <a className="absolute inset-0 flex items-center justify-center">
-                  <span className="bg-gray-700 text-white rounded-full p-3 hover:bg-gray-800 transition-all duration-300">
-                    <i className="bi bi-play-circle-fill"></i>
-                  </span>
-                </a>
-              </div>
+            {/* Personnel Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              {personnel.map((member, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-lg shadow p-4 text-center"
+                >
+                  <h4 className="font-semibold">{member.name}</h4>
+                  <p className="text-gray-600">{member.position}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-gray-700 mb-4 animate__animated animate__fadeInUp">
+              Debido a nuestra larga carrera y destacada trayectoria, hemos
+              mantenido nuestras oficinas abiertas al público durante casi ¡20
+              años de Servicio!, de forma continua. Nos enorgullece ser parte de
+              sus vidas y estar al servicio de la comunidad
+            </p>
+          </div>
+
+          {/* Right Column: Text first, then image */}
+          <div className="md:w-1/2">
+            <p className="fst-italic text-gray-700 mb-4 animate__animated animate__fadeInUp">
+              Somos una oficina familiar creada desde el año 2005, orientados a
+              desarrollar y proveer servicios a toda la comunidad de habla
+              hispana principalmente y al público en general. Ofrecemos un
+              equipo de trabajo integro, especializado a través de los años en
+              preparación de impuestos personales, integrando variedad servicios
+              tales como: traducciones, notarias, tramites de inmigración,
+              cartas de todo tipo, formularios de toda índole y mucho más.
+            </p>
+            <p className="fst-italic text-gray-700 mb-4 animate__animated animate__fadeInUp">
+              Originalmente nombrado como: <strong>“MULTISERVICE KELLY”</strong>
+              , liderado por sus fundadores y mentores: Sra. Grace M. Kelly y el
+              Sr. Miguel R. Kelly, ambos hermanos, comprometidos a desarrollar
+              un programa de servicios en pro de ayuda a la comunidad en
+              general, no obstante, hoy día forman parte integral del equipo.
+            </p>
+            <p className="text-gray-700 mb-4 animate__animated animate__fadeInUp">
+              Nuestros fundadores, crearon el núcleo de lo que somos en la
+              actualidad: <strong>“KELLY TAX PRO”</strong>, un equipo de
+              profesionales que trabajan en conjunto, siguiendo bases sólidas e
+              inalterables, transmitidas de generación en generación. Llevando
+              como estandarte nuestros valores morales, familiares y
+              espirituales, juntamente con principios de vida como: la
+              honestidad, responsabilidad, amabilidad y calidad de servicio.
+            </p>
+
+            {/* Image at the bottom */}
+            <div className="relative mt-4 animate__animated animate__fadeInUp">
+              <img
+                src="/assets/img/logo.png"
+                className="rounded-lg w-full h-auto object-cover"
+                alt="About Us Video"
+              />
             </div>
           </div>
         </div>

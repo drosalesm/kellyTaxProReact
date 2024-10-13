@@ -54,14 +54,14 @@ const Header = () => {
       {/* Top Bar */}
       <div className="bg-black text-white py-2 text-sm">
         <div className="container mx-auto flex justify-between">
-          <div>Email: contact@taxkellypro.com</div>
+          <div>contact@taxkellypro.com</div>
         </div>
       </div>
 
       {/* Main Navbar */}
       <nav className="bg-teal-600 p-5 text-white">
         <div className="flex justify-between items-center font-serif">
-          <div className="text-3xl">Tax Kelly Pro.</div>
+          <div className="text-3xl">Tax Kelly Pro</div>
           {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-6">
             <li className="flex items-center space-x-1">
