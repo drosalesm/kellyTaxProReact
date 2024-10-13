@@ -7,8 +7,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
 import { Link } from "react-scroll"; // Import the react-scroll Link
 
-
-
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
@@ -39,7 +37,7 @@ const Header = () => {
       setShowScrollToTop(true);
     } else {
       setShowScrollToTop(false);
-    };
+    }
   };
 
   useEffect(() => {
@@ -121,12 +119,6 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="fixed inset-0 text-white bg-gray-800 bg-opacity-75 flex justify-center items-center z-50">
           <div className="bg-teal-600 p-8 rounded shadow-lg w-full max-w-md h-auto">
-            <button
-              onClick={toggleMobileMenu}
-              className="absolute top-4 right-4 text-white"
-            >
-              <CloseIcon />
-            </button>
             <ul className="flex flex-col space-y-4">
               <li className="flex items-center space-x-1">
                 <HomeIcon />
@@ -143,7 +135,7 @@ const Header = () => {
               <li className="flex items-center space-x-1">
                 <MiscellaneousServicesIcon />
                 <Link
-                  to="home"
+                  to="services"
                   smooth={true}
                   duration={500}
                   className="hover:text-gray-900 cursor-pointer"
@@ -152,7 +144,6 @@ const Header = () => {
                   Servicios
                 </Link>
               </li>
-              
               <li className="flex items-center space-x-1">
                 <InfoIcon />
                 <Link
@@ -178,6 +169,13 @@ const Header = () => {
                 </Link>
               </li>
             </ul>
+            {/* Close button placed below the menu options */}
+            <button
+              onClick={toggleMobileMenu}
+              className="mt-4 w-full text-white flex justify-center"
+            >
+              <CloseIcon />
+            </button>
           </div>
         </div>
       )}
