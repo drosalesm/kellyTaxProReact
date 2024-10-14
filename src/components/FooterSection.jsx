@@ -1,58 +1,25 @@
-import React from 'react';
+import React from "react";
 
 const Footer = () => {
+
+  const currentYear = new Date().getFullYear(); // Get the current year
+
   return (
     <footer className="bg-teal-600 text-white py-4 mt-6">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="mb-4 md:mb-0">
-          <p>&copy; 2024 Kelly Pro</p>
+          <p>&copy; {currentYear} Kelly Pro</p>
         </div>
-        <div className="flex space-x-4">
-          <a 
-            href="#" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-white hover:text-blue-400"
+        <div className="flex space-x-4 flex-grow justify-center">
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex justify-center items-center text-white hover:text-blue-400"
           >
-            <img 
-              src="https://img.icons8.com/ios-filled/50/ffffff/facebook.png" 
-              alt="Facebook" 
-              className="w-6 h-6"
-            />
-          </a>
-          <a 
-            href="#" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-white hover:text-blue-400"
-          >
-            <img 
-              src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" 
-              alt="X (Twitter)" 
-              className="w-6 h-6"
-            />
-          </a>
-          <a 
-            href="#" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-white hover:text-blue-400"
-          >
-            <img 
-              src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" 
-              alt="Instagram" 
-              className="w-6 h-6"
-            />
-          </a>
-          <a 
-            href="#" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-white hover:text-blue-400"
-          >
-            <img 
-              src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" 
-              alt="WhatsApp" 
+            <img
+              src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png"
+              alt="WhatsApp"
               className="w-6 h-6"
             />
           </a>

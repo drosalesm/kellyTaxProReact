@@ -52,7 +52,7 @@ const Header = () => {
       {/* Top Bar */}
       <div className="bg-black text-white py-2 text-sm">
         <div className="container mx-auto flex justify-between">
-          <div>contact@taxkellypro.com</div>
+          <div>kellytaxpro@gmail.com</div>
         </div>
       </div>
 
@@ -129,7 +129,7 @@ const Header = () => {
                   className="hover:text-gray-900 cursor-pointer"
                   onClick={toggleMobileMenu}
                 >
-                  Home
+                  Inicio
                 </Link>
               </li>
               <li className="flex items-center space-x-1">
@@ -153,7 +153,7 @@ const Header = () => {
                   className="hover:text-gray-900 cursor-pointer"
                   onClick={toggleMobileMenu}
                 >
-                  About
+                  Acerca de nosotros
                 </Link>
               </li>
               <li className="flex items-center space-x-1">
@@ -165,7 +165,7 @@ const Header = () => {
                   className="hover:text-gray-900 cursor-pointer"
                   onClick={toggleMobileMenu}
                 >
-                  Contact
+                  Contactanos
                 </Link>
               </li>
             </ul>
