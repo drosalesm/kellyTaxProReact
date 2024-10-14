@@ -6,10 +6,6 @@ const AboutSection = () => {
     { name: "Maholi Y. Kelly", position: "Gerente Administrativo" },
     { name: "Grace Rivera", position: "Admin" },
     { name: "Bryan Kelly", position: "Admin" },    
-    { name: "Luz Kelly", position: "Admin" },
-    { name: "Delmy Kelly", position: "Admin" },    
-    { name: "Walter Kelly ", position: "Admin" },  
-    { name: "Oscar Moradel ", position: "Admin" },            
   ];
 
   return (
@@ -74,8 +70,8 @@ const AboutSection = () => {
               cartas de todo tipo, formularios de toda índole y mucho más.
             </p>
             <p className="fst-italic text-gray-700 mb-4 animate__animated animate__fadeInUp">
-              Originalmente nombrado como: <strong>“MULTISERVICE KELLY”</strong>
-              , liderado por sus fundadores y mentores: Sra. Grace M. Kelly y el
+              Originalmente nombrado como: <strong>“MULTISERVICE KELLEY </strong>
+              , liderado por sus fundadores y mentores: Sra. Grace M. Kelley y el
               Sr. Miguel R. Kelly, ambos hermanos, comprometidos a desarrollar
               un programa de servicios en pro de ayuda a la comunidad en
               general, no obstante, hoy día forman parte integral del equipo.

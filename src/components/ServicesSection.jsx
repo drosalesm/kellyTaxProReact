@@ -14,42 +14,49 @@ const getRandomAnimation = () => {
   return animations[randomIndex];
 };
 
-// Updated services array to include subtitles
+// Updated services array to include imageUrl
 const services = [
   { 
     title: 'Taxes', 
-    subtitle: 'Impuestos y Auditorías', // Added subtitle
-    description: 'ITIN, Auditorias, Acuerdos de Pago, Enmiendas, Récord de Taxes, ID.me, Llamadas al IRS, Asesoría' 
+    subtitle: '', 
+    description: 'ITIN, Auditorias, Acuerdos de Pago, Enmiendas, Récord de Taxes, ID.me, Llamadas al IRS, Asesoría',
+    imageUrl: '/assets/img/Services/taxes.jpeg' // Path to Taxes image
   },
   { 
     title: 'USCIS', 
-    subtitle: 'Servicios de Inmigración', // Added subtitle
-    description: 'Ciudadanías, Residencias, TPS, Asesoría de Visas' 
+    subtitle: '', 
+    description: 'Ciudadanías, Residencias, TPS, Asesoría de Visas', 
+    imageUrl: '/assets/img/Services/immigration.jpg' // Path to USCIS image
   },
   { 
     title: 'Cartas', 
-    subtitle: 'Documentación Oficial', // Added subtitle
-    description: 'Asistencia con Cartas Oficiales, Documentación' 
+    subtitle: '', 
+    description: 'Asistencia con Cartas Oficiales, Documentación', 
+    imageUrl: '/assets/img/Services/letter.png' // Path to Cartas image
   },
   { 
     title: 'DMV', 
-    subtitle: 'Licencias y Matrículas', // Added subtitle
-    description: 'Licencias de Conducir, Renovación de Matrículas' 
+    subtitle: '', 
+    description: 'Licencias de Conducir, Renovación de Matrículas', 
+    imageUrl: '/assets/img/Services/licence.jpg' // Path to DMV image
   },  
   { 
     title: 'Social Security', 
-    subtitle: 'Beneficios de Seguridad Social', // Added subtitle
-    description: 'Procesos de Seguridad Social, Apoyo en Beneficios' 
+    subtitle: '', 
+    description: 'Procesos de Seguridad Social, Apoyo en Beneficios',
+    imageUrl: '/assets/img/Services/socialsec.png' // Path to Social Security image
   },   
   { 
     title: 'Social Service', 
-    subtitle: 'Apoyo a la Comunidad', // Added subtitle
-    description: 'Guía de Servicios Sociales, Apoyo en Programas' 
+    subtitle: '', 
+    description: 'Guía de Servicios Sociales, Apoyo en Programas', 
+    imageUrl: '/assets/img/Services/socialservice.jpg' // Path to Social Service image
   },       
   { 
     title: 'Departamento de Labor', 
-    subtitle: 'Asesoría Laboral', // Added subtitle
-    description: 'Formalidades del Departamento de Labor' 
+    subtitle: '', 
+    description: 'Formalidades del Departamento de Labor', 
+    imageUrl: '/assets/img/Services/labor.jfif' // Path to Departamento de Labor image
   },         
 ];
 
@@ -69,26 +76,30 @@ const ServiceCard = ({ service, index, isExpanded, toggleCardExpand }) => {
       style={{
         animationDuration: '1.2s',
         animationDelay: `${index * 0.1}s`,
-        height: isExpanded ? 'auto' : '350px',
+        height: isExpanded ? 'auto' : '450px', // Increased height for more space
         transition: 'height 0.3s ease-in-out'
       }}
     >
-      <div className="absolute top-4 right-4">
-        <IconButton onClick={() => toggleCardExpand(index)}>
-          {isExpanded ? <ExpandLess /> : <ExpandMore />} {/* Toggle icon */}
-        </IconButton>
-      </div>
-
       <h3 className="text-xl font-bold mb-1">{service.title}</h3>
       <h4 className="text-lg text-gray-600 mb-4">{service.subtitle}</h4> {/* Added subtitle */}
 
       {/* Centered image placeholder */}
       <div className="flex justify-center mb-4">
         <img 
-          src="https://via.placeholder.com/150" 
-          alt="Service" 
+          src={service.imageUrl}  // Dynamic image URL
+          alt={service.title} 
           className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-lg" 
-        /> {/* Sample image */}
+        />
+      </div>
+
+      {/* Move the icon below the image and increase its size */}
+      <div className="mb-4">
+        <IconButton 
+          onClick={() => toggleCardExpand(index)} 
+          size="large"  // Make the icon larger
+        >
+          {isExpanded ? <ExpandLess fontSize="large" /> : <ExpandMore fontSize="large" />} {/* Toggle icon */}
+        </IconButton>
       </div>
 
       {/* Task list with proper alignment */}
@@ -115,7 +126,7 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-12 md:py-16 bg-gray-100 mt-4 md:mt-0 lg:mt-0 pt-20">
+    <section id="services" className="py-12 md:py-16 bg-gray-100 mt-4 md:mt-0 lg:mt-0 pt-8">
       <div className="container mx-auto text-center px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-4">Nuestros Servicios</h2>
         <p className="text-gray-600 mb-8">Contamos con los siguientes servicios.</p>
