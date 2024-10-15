@@ -72,7 +72,7 @@ const AboutSection = () => {
             <p className="fst-italic text-gray-700 mb-4 animate__animated animate__fadeInUp">
               Originalmente nombrado como: <strong>“MULTISERVICE KELLEY </strong>
               , liderado por sus fundadores y mentores: Sra. Grace M. Kelley y el
-              Sr. Miguel R. Kelly, ambos hermanos, comprometidos a desarrollar
+              Sr. Miguel R. Kelley, ambos hermanos, comprometidos a desarrollar
               un programa de servicios en pro de ayuda a la comunidad en
               general, no obstante, hoy día forman parte integral del equipo.
             </p>
