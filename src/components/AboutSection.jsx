@@ -2,10 +2,10 @@ import React from "react";
 
 const AboutSection = () => {
   const personnel = [
-    { name: "Gerald A. Kelly", position: "Gerente Administrativo" },
-    { name: "Maholi Y. Kelly", position: "Gerente Administrativo" },
-    { name: "Grace Rivera", position: "Admin" },
-    { name: "Bryan Kelly", position: "Admin" },    
+    { name: "Miguel Kelley", position: "Gerente Fundador" },    
+    { name: "Gerald Kelly", position: "Gerente Administrativo" },
+    { name: "Maholi Kelly", position: "Gerente Operaciones" },
+    { name: "Bryan Kelly", position: "Gerente de oficina" },    
   ];
 
   return (

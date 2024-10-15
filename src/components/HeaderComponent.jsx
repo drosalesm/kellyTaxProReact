@@ -59,7 +59,7 @@ const Header = () => {
       {/* Main Navbar */}
       <nav className="bg-teal-600 p-5 text-white">
         <div className="flex justify-between items-center font-serif">
-          <div className="text-3xl">Tax Kelly Pro</div>
+          <div className="text-3xl">Kelly Tax Pro</div>
           {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-6">
             <li className="flex items-center space-x-1">

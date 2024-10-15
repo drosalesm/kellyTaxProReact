@@ -1,6 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    phoneNumber: "",
+    message: "",
+    agree: false,
+  });
+
+  const handleChange = (e) => {
+    const { id, value, type, checked } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [id]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Construct the request payload
+    const payload = {
+      firstName: formData.firstName,
+      phoneNumber: formData.phoneNumber,
+      message: formData.message,
+      jwt: "eyJlbmMiOiJBMTI4R0NNIiwiYnJhbmQiOiJFWiIsImFsZyI6ImRpciIsIndpZGdldElkIjoiOGZiZjVmZTMtYmUyZi00ZDM4LWFkMjctYmEzZTI0ZGU3NGNkIn0..RkZhZf1Zy8HvufmU.Vqdzv4Lg79G8oAsEV4ifbS1KjO5iB9HbT_VUjjtRtPPCDLMAQhQZx24JgaR7Pq_TFREIcDNmKaTRhvrWJ8vPB5qo7SqjylHuBrB_ryqNTrMfT9YdlP_3R3GNIvJOW3StiaNTQLvAQ08czTQo5xss_4cA8opXY2wXiHqS0P_Hk6f3aEgfZa4iELucmRlqLEonYH_o_-9v6CxfPo5SsmSHJDPnbJyfmIHSFVr5-gro_H-8Ng.vpwT75djWIcyjkJdXjywOQ"
+    };
+
+    console.log("Sending payload:", payload);
+
+    try {
+      const response = await fetch("https://widgy-lb.prd.cfire.io/EZ/widget/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error data:", errorData);
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      console.log("Success:", data);
+      alert("Message sent successfully!");
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Failed to send message.");
+    }
+  };
+
   return (
     <section id="contact" className="pt-8 pb-0 bg-gray-100">
       <div className="container mx-auto text-center mb-3 px-4 sm:px-6 pb-4">
@@ -18,28 +70,32 @@ const ContactSection = () => {
             <h3 className="text-xl font-semibold mb-4 animate__animated animate__fadeInUp">
               Escribenos
             </h3>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
-                <label className="block text-gray-700 mb-1" htmlFor="name">
+                <label className="block text-gray-700 mb-1" htmlFor="firstName">
                   Nombre
                 </label>
                 <input
                   type="text"
-                  id="name"
+                  id="firstName"
                   className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600"
                   placeholder="Nombre completo"
+                  value={formData.firstName}
+                  onChange={handleChange}
                   required
                 />
               </div>
               <div>
-                <label className="block text-gray-700 mb-1" htmlFor="email">
-                Teléfono
+                <label className="block text-gray-700 mb-1" htmlFor="phoneNumber">
+                  Teléfono
                 </label>
                 <input
                   type="tel"
-                  id="phone"
+                  id="phoneNumber"
                   className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600"
                   placeholder="Numero de teléfono"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -52,8 +108,25 @@ const ContactSection = () => {
                   className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600"
                   placeholder="Mensaje"
                   rows="4"
+                  value={formData.message}
+                  onChange={handleChange}
                   required
                 ></textarea>
+              </div>
+              <div className="c-web-form__control-group">
+                <input
+                  className="c-web-form__checkbox"
+                  type="checkbox"
+                  id="agree"
+                  checked={formData.agree}
+                  onChange={handleChange}
+                  required
+                />
+                <label className="c-web-form__label" htmlFor="agree">
+                  By checking this box, you agree to receive text messages from
+                  Kelly Tax Pro. Recurring messages subscription. Message and
+                  data rates may apply. Reply HELP for help and STOP to opt out.
+                </label>
               </div>
               <button
                 type="submit"
