@@ -4,7 +4,7 @@ const HomeSection = () => {
   return (
     <section
       id="home"
-      className="flex flex-col md:flex-row items-stretch bg-gray-200 w-full h-[200px] md:h-[300px] lg:h-[400px] mb-9 md:mb-0 border-2 border-gray-300"
+      className="flex flex-col md:flex-row items-stretch bg-gray-200 w-full h-[200px] md:h-[300px] lg:h-[400px] mb-20 md:mb-0 border-2 border-gray-300"
     >
       {/* Left Side: Centered image with responsive width */}
       <div
