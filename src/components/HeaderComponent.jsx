@@ -52,7 +52,7 @@ const Header = () => {
       {/* Top Bar */}
       <div className="bg-black text-white py-2 text-sm">
         <div className="container mx-auto flex justify-between">
-          <div>kellytaxpro@gmail.com</div>
+          <div>office@kellytaxpro.com</div>
         </div>
       </div>
 

@@ -88,7 +88,7 @@ const ServiceCard = ({ service, index, isExpanded, toggleCardExpand }) => {
         <img 
           src={service.imageUrl}  // Dynamic image URL
           alt={service.title} 
-          className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-lg" 
+          className="w-48 h-48 object-cover rounded-lg" 
         />
       </div>
 
