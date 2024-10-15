@@ -1,56 +1,42 @@
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    phoneNumber: "",
+    name: "",
+    phone: "",
     message: "",
-    agree: false,
   });
 
-  const handleChange = (e) => {
-    const { id, value, type, checked } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [id]: type === "checkbox" ? checked : value,
-    }));
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
 
-    // Construct the request payload
-    const payload = {
-      firstName: formData.firstName,
-      phoneNumber: formData.phoneNumber,
-      message: formData.message,
-      jwt: "eyJlbmMiOiJBMTI4R0NNIiwiYnJhbmQiOiJFWiIsImFsZyI6ImRpciIsIndpZGdldElkIjoiOGZiZjVmZTMtYmUyZi00ZDM4LWFkMjctYmEzZTI0ZGU3NGNkIn0..RkZhZf1Zy8HvufmU.Vqdzv4Lg79G8oAsEV4ifbS1KjO5iB9HbT_VUjjtRtPPCDLMAQhQZx24JgaR7Pq_TFREIcDNmKaTRhvrWJ8vPB5qo7SqjylHuBrB_ryqNTrMfT9YdlP_3R3GNIvJOW3StiaNTQLvAQ08czTQo5xss_4cA8opXY2wXiHqS0P_Hk6f3aEgfZa4iELucmRlqLEonYH_o_-9v6CxfPo5SsmSHJDPnbJyfmIHSFVr5-gro_H-8Ng.vpwT75djWIcyjkJdXjywOQ"
-    };
-
-    console.log("Sending payload:", payload);
-
-    try {
-      const response = await fetch("https://widgy-lb.prd.cfire.io/EZ/widget/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+    emailjs
+      .send(
+        "service_4eocnvr", // Your EmailJS service ID
+        "template_b6aunei", // Your EmailJS template ID
+        {
+          from_name: formData.name, // Match this with the variable in your template
+          phone: formData.phone,
+          message: formData.message,
         },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Error data:", errorData);
-        throw new Error(`Error: ${response.status} - ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      console.log("Success:", data);
-      alert("Message sent successfully!");
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Failed to send message.");
-    }
+        "nBfBicFpWRcvOfL0k" // Your EmailJS public key
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Message sent successfully!");
+        },
+        (error) => {
+          console.log(error.text);
+          alert("Failed to send message, please try again.");
+        }
+      );
   };
 
   return (
@@ -60,42 +46,41 @@ const ContactSection = () => {
           Contáctanos
         </h2>
         <p className="text-gray-600 animate__animated animate__fadeInUp">
-          Esteremos encantados de poder ayudarte
+          Estaremos encantados de poder ayudarte
         </p>
       </div>
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Contact Form Column - 40% */}
           <div className="md:w-5/12">
             <h3 className="text-xl font-semibold mb-4 animate__animated animate__fadeInUp">
-              Escribenos
+              Escríbenos
             </h3>
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <form onSubmit={sendEmail} className="space-y-4">
               <div>
-                <label className="block text-gray-700 mb-1" htmlFor="firstName">
+                <label className="block text-gray-700 mb-1" htmlFor="name">
                   Nombre
                 </label>
                 <input
                   type="text"
-                  id="firstName"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600"
                   placeholder="Nombre completo"
-                  value={formData.firstName}
-                  onChange={handleChange}
                   required
                 />
               </div>
               <div>
-                <label className="block text-gray-700 mb-1" htmlFor="phoneNumber">
+                <label className="block text-gray-700 mb-1" htmlFor="phone">
                   Teléfono
                 </label>
                 <input
                   type="tel"
-                  id="phoneNumber"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
                   className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600"
-                  placeholder="Numero de teléfono"
-                  value={formData.phoneNumber}
-                  onChange={handleChange}
+                  placeholder="Número de teléfono"
                   required
                 />
               </div>
@@ -104,29 +89,14 @@ const ContactSection = () => {
                   Mensaje
                 </label>
                 <textarea
-                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600"
                   placeholder="Mensaje"
                   rows="4"
-                  value={formData.message}
-                  onChange={handleChange}
                   required
                 ></textarea>
-              </div>
-              <div className="c-web-form__control-group">
-                <input
-                  className="c-web-form__checkbox"
-                  type="checkbox"
-                  id="agree"
-                  checked={formData.agree}
-                  onChange={handleChange}
-                  required
-                />
-                <label className="c-web-form__label" htmlFor="agree">
-                  By checking this box, you agree to receive text messages from
-                  Kelly Tax Pro. Recurring messages subscription. Message and
-                  data rates may apply. Reply HELP for help and STOP to opt out.
-                </label>
               </div>
               <button
                 type="submit"

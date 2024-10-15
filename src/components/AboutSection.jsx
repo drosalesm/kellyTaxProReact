@@ -4,8 +4,8 @@ const AboutSection = () => {
   const personnel = [
     { name: "Miguel Kelley", position: "Gerente Fundador" },    
     { name: "Gerald Kelly", position: "Gerente Administrativo" },
-    { name: "Maholi Kelly", position: "Gerente Operaciones" },
-    { name: "Bryan Kelly", position: "Gerente de oficina" },    
+    { name: "Maholi Kelly", position: "Gerente de Operaciones" },
+    { name: "Bryan Kelly", position: "Gerente de Oficina" },    
   ];
 
   return (
@@ -13,7 +13,7 @@ const AboutSection = () => {
       {/* Title and Subtitle Aligned at Center */}
       <div className="container mx-auto text-center mb-3 px-4 sm:px-6">
         <h2 className="text-3xl font-bold mb-2 animate__animated animate__fadeInUp">
-          Acerca de nosotros
+          Acerca de Nosotros
         </h2>
         <p className="text-gray-600 animate__animated animate__fadeInUp">
           Somos una empresa comprometida con el buen servicio calidad en nuestra atención.

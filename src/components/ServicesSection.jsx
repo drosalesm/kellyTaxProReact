@@ -47,7 +47,7 @@ const services = [
     imageUrl: '/assets/img/Services/socialsec.png' // Path to Social Security image
   },   
   { 
-    title: 'Social Service', 
+    title: 'Social Services', 
     subtitle: '', 
     description: 'Guía de Servicios Sociales, Apoyo en Programas', 
     imageUrl: '/assets/img/Services/socialservice.jpg' // Path to Social Service image

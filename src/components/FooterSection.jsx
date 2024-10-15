@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="bg-teal-600 text-white py-4 mt-6">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="mb-4 md:mb-0">
-          <p>&copy; {currentYear} Kelly Tax Pro, Licensed Professional</p>
+          <p>&copy; {currentYear} Kelly Tax Pro</p>
         </div>
         <div className="flex space-x-4 flex-grow justify-center">
           <a
