@@ -20,7 +20,7 @@ const services = [
     title: 'Taxes', 
     subtitle: '', 
     description: 'ITIN, Auditorias, Acuerdos de Pago, Enmiendas, Récord de Taxes, ID.me, Llamadas al IRS, Asesoría',
-    imageUrl: '/assets/img/Services/taxes.jpeg' // Path to Taxes image
+    imageUrl: '/assets/img/Services/taxes.png' // Path to Taxes image
   },
   { 
     title: 'USCIS', 
