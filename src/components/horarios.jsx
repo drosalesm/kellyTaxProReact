@@ -14,7 +14,7 @@ const ScheduleList = () => {
 
   return (
     <section className="mb:0 flex flex-col items-center justify-center h-screen bg-gray-100 p-4 animate__animated animate__fadeIn">
-      <h2 className="text-5xl font-bol mb-6">Nuestros horarios de atención</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-4">Horarios de atención</h2>
 
       <div className=" mb-8 w-full max-w-4xl bg-white shadow-xl rounded-lg p-6 transition-transform transform hover:scale-105">
         <h4 className="text-2xl  mb-4 text-gray-800 text-center">Temporada de Taxes: <strong>Enero-Abril</strong></h4>
