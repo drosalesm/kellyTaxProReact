@@ -2,19 +2,22 @@ import React, { useState } from "react";
 
 const AboutSection = () => {
   const personnel = [
-    { name: "Miguel Kelley", position: "Fundador", imageUrl: "/assets/img/tonyProf.jpg" },
-    { name: "Gerald Kelly", position: "Consultor Profesional", imageUrl: "/assets/img/geraldformal.jpg" },
-    { name: "Maholi Kelly", position: "Consultor Profesional", imageUrl: "/assets/img/haholyformal.jpg" },
-    { name: "Bryan Kelly", position: "Asistente Consultor", imageUrl: "/assets/img/bryanformal.jpg" },
-    { name: "Grace Kelley", position: "Asistente Consultor", imageUrl: "/assets/img/graceformal.jpg" },
-    { name: "Luz Kelly", position: "Asistente de Oficina", imageUrl: "/assets/img/luz.jpg" },
-    { name: "Oscar Moradel", position: "Asistente de Oficina", imageUrl: "/assets/img/oscar.jpg" },                
+    { name: "Miguel Kelley", position: "Fundador", imageUrl: "/assets/img/tonyProf-min.jpg" },
+    { name: "Gerald Kelly", position: "Consultor Profesional", imageUrl: "/assets/img/geraldformal-min.jpg" },
+    { name: "Maholi Kelly", position: "Consultor Profesional", imageUrl: "/assets/img/haholyformal-min.jpg" },
+    { name: "Bryan Kelly", position: "Asistente Consultor", imageUrl: "/assets/img/bryanformal-min.jpg" },
+    { name: "Grace Kelley", position: "Asistente Consultor", imageUrl: "/assets/img/graceKelley.jfif" },
+    { name: "Grace Rivera", position: "Asistente Consultor", imageUrl: "/assets/img/graceformal-min.jpg" },
+    { name: "Luz Kelly", position: "Asistente de Oficina", imageUrl: "" },
+    { name: "Oscar Moradel", position: "Asistente de Oficina", imageUrl: "" },                
   ];
 
   const [expandedMember, setExpandedMember] = useState(null);
 
   const toggleExpand = (index) => {
-    setExpandedMember(expandedMember === index ? null : index);
+    if (personnel[index].imageUrl) {
+      setExpandedMember(expandedMember === index ? null : index);
+    }
   };
 
   return (
@@ -35,7 +38,7 @@ const AboutSection = () => {
           {/* Left Column: Image first, then text */}
           <div className="md:w-1/2">
             <img
-              src="/assets/img/tonyProf.jpg"
+              src="/assets/img/tonyProf-min.jpg"
               className="rounded-lg mb-4 w-full h-auto object-cover animate__animated animate__fadeInUp"
               alt="About Us Image"
             />
@@ -51,32 +54,32 @@ const AboutSection = () => {
               {personnel.map((member, index) => (
                 <div
                   key={index}
-                  className={`bg-white rounded-lg shadow p-4 text-center cursor-pointer transition-all duration-300 ${
+                  className={`bg-white rounded-lg shadow p-4 text-center cursor-pointer transition-all duration-500 ease-in-out ${
                     expandedMember === index ? "h-auto" : "h-24"
                   }`}
-                  onClick={() => toggleExpand(index)} // Click handler to toggle expand
+                  onClick={() => toggleExpand(index)} // Click handler to toggle expand only if imageUrl exists
                   style={{ overflow: "hidden" }} // To hide the image when collapsed
                 >
                   <h4 className="font-semibold">{member.name}</h4>
                   <p className="text-gray-600">{member.position}</p>
 
-                  <div
-                    className={`transition-opacity duration-300 ease-in-out ${
-                      expandedMember === index ? "opacity-100 mt-2" : "opacity-0"
-                    }`}
-                    style={{
-                      maxHeight: expandedMember === index ? "100px" : "0",
-                      transition: "max-height 0.3s ease-in-out", // Smooth height transition
-                    }}
-                  >
-                    {expandedMember === index && (
+                  {member.imageUrl && (
+                    <div
+                      className={`transition-all duration-700 ease-in-out transform ${
+                        expandedMember === index ? "opacity-100 mt-2 scale-100" : "opacity-0 scale-75"
+                      }`}
+                      style={{
+                        maxHeight: expandedMember === index ? "150px" : "0",
+                        transition: "max-height 0.5s ease-in-out", // Smooth height transition
+                      }}
+                    >
                       <img
                         src={member.imageUrl} // Dynamic image URL for the member
                         alt={member.name}
                         className="w-16 h-16 object-cover rounded-full mx-auto"
                       />
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
