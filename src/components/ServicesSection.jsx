@@ -26,19 +26,19 @@ const services = [
     title: 'USCIS', 
     subtitle: '', 
     description: 'Ciudadanías, Residencias, TPS, Asesoría de Visas', 
-    imageUrl: '/assets/img/Services/immigration.jpg' // Path to USCIS image
+    imageUrl: '/assets/img/Services/USCIS.png' // Path to USCIS image
   },
   { 
     title: 'Cartas', 
     subtitle: '', 
     description: 'Asistencia con Cartas Oficiales, Documentación', 
-    imageUrl: '/assets/img/Services/letter.png' // Path to Cartas image
+    imageUrl: '/assets/img/Services/carta.JFIF' // Path to Cartas image
   },
   { 
     title: 'DMV', 
     subtitle: '', 
     description: 'Licencias de Conducir, Renovación de Matrículas', 
-    imageUrl: '/assets/img/Services/licence.jpg' // Path to DMV image
+    imageUrl: '/assets/img/Services/licence.png' // Path to DMV image
   },  
   { 
     title: 'Social Security', 
@@ -56,7 +56,7 @@ const services = [
     title: 'Departamento de Labor', 
     subtitle: '', 
     description: 'Formalidades del Departamento de Labor', 
-    imageUrl: '/assets/img/Services/labor.jfif' // Path to Departamento de Labor image
+    imageUrl: '/assets/img/Services/labor.png' // Path to Departamento de Labor image
   },         
 ];
 
@@ -80,20 +80,20 @@ const ServiceCard = ({ service, index, isExpanded, toggleCardExpand }) => {
         transition: 'height 0.3s ease-in-out'
       }}
     >
-      <h3 className="text-xl font-bold mb-1">{service.title}</h3>
-      <h4 className="text-lg text-gray-600 mb-4">{service.subtitle}</h4> {/* Added subtitle */}
+      <h3 className="text-xl font-bold">{service.title}</h3>
+      <h4 className="text-lg text-gray-600">{service.subtitle}</h4> {/* Added subtitle */}
 
       {/* Centered image placeholder */}
-      <div className="flex justify-center mb-4">
+      <div className="flex justify-center">
         <img 
           src={service.imageUrl}  // Dynamic image URL
           alt={service.title} 
-          className="w-48 h-48 object-cover rounded-lg" 
+          className="w-64 h-64 object-cover rounded-lg" 
         />
       </div>
 
       {/* Move the icon below the image and increase its size */}
-      <div className="mb-4">
+      <div className=""> {/* Adjusted margin to reduce space */}
         <IconButton 
           onClick={() => toggleCardExpand(index)} 
           size="large"  // Make the icon larger

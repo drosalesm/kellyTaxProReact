@@ -8,6 +8,8 @@ const ContactSection = () => {
     message: "",
   });
 
+  const [showModal, setShowModal] = useState(false); // State for controlling modal visibility
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -18,30 +20,32 @@ const ContactSection = () => {
 
     emailjs
       .send(
-        "service_4eocnvr", // Your EmailJS service ID
-        "template_b6aunei", // Your EmailJS template ID
+        "service_syo460o", // Your EmailJS service ID
+        "template_hexek43", // Your EmailJS template ID
         {
           from_name: formData.name,
           phone: formData.phone,
           message: formData.message,
-          to_email: "Office@kellytaxpro.com", // Ensure email is sent to the correct address
         },
-        "nBfBicFpWRcvOfL0k" // Your EmailJS public key
+        "2ZI3MTy9_HXznPyV6" // Your EmailJS public key
       )
       .then(
         (result) => {
           console.log(result.text);
-          alert("Message sent successfully!");
+          setShowModal(true); // Show modal when message is successfully sent
+          setTimeout(() => {
+            setShowModal(false); // Hide modal after 2 seconds
+          }, 3000);
         },
         (error) => {
           console.log(error.text);
-          alert("Failed to send message, please try again.");
+          alert("Hubo un problema al intentar enviar el mensaje.");
         }
       );
   };
 
   return (
-    <section id="contact" className="pt-8 pb-0 bg-gray-100">
+    <section id="contact" className="pt-8 pb-0 bg-gray-100 relative">
       <div className="container mx-auto text-center mb-3 px-4 sm:px-6 pb-4">
         <h2 className="text-3xl font-bold mb-2 animate__animated animate__fadeInUp">
           Contáctenos
@@ -139,6 +143,16 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Success Modal */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h3 className="text-2xl font-semibold mb-4">¡Mensaje Enviado!</h3>
+            <p className="text-gray-700">Tu mensaje ha sido enviado con éxito.</p>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
