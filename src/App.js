@@ -6,6 +6,7 @@ import Services from './components/ServicesSection'
 import About from './components/AboutSection'
 import Contact from './components/ContactSection'
 import Footer from './components/FooterSection'
+import ScheduleCard from './components/horarios';
 
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
         <div className='font-playfair bg-gray-100'>
             <Header />
             <Home />
+            <ScheduleCard />
             <Services />                        
             <About />
             <Contact />

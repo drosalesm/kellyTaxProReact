@@ -46,7 +46,7 @@ const AboutSection = () => {
               Lo Kellymporta a Usted... a Nosotros También
             </h3>
             <p className="text-gray-700 mb-4 animate__animated animate__fadeInUp">
-              Hoy en día nuestra compañía cuenta con el siguiente personal:
+            Nuestro Equipo de Profesionales:
             </p>
 
             {/* Personnel Grid */}

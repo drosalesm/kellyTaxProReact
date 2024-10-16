@@ -45,7 +45,7 @@ const HomeSection = () => {
   return (
     <section
       id="home"
-      className="flex flex-col md:flex-row items-stretch bg-gray-200 w-full h-[300px] lg:h-[400px] mb-4 md:mb-0 border-2 border-gray-300"
+      className="flex flex-col md:flex-row items-stretch bg-gray-200 w-full h-[300px] lg:h-[400px] border-2 border-gray-300"
     >
       {/* Left Side: Centered image with responsive width (40% of content) */}
       <div className="md:w-2/5 order-2 md:order-1 flex justify-center items-center h-full">
