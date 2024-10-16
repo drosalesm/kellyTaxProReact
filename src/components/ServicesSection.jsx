@@ -32,7 +32,7 @@ const services = [
     title: 'Cartas', 
     subtitle: '', 
     description: 'Asistencia con Cartas Oficiales, Documentación', 
-    imageUrl: '/assets/img/Services/carta.JFIF' // Path to Cartas image
+    imageUrl: '/assets/img/Services/carta.jfif' // Path to Cartas image
   },
   { 
     title: 'DMV', 
