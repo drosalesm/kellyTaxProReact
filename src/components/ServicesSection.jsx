@@ -50,7 +50,7 @@ const services = [
     title: 'Social Services', 
     subtitle: '', 
     description: 'Guía de Servicios Sociales, Apoyo en Programas', 
-    imageUrl: '/assets/img/Services/socialservice.jpg' // Path to Social Service image
+    imageUrl: '/assets/img/Services/socialservice.png' // Path to Social Service image
   },       
   { 
     title: 'Departamento de Labor', 
