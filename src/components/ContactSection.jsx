@@ -21,9 +21,10 @@ const ContactSection = () => {
         "service_4eocnvr", // Your EmailJS service ID
         "template_b6aunei", // Your EmailJS template ID
         {
-          from_name: formData.name, // Match this with the variable in your template
+          from_name: formData.name,
           phone: formData.phone,
           message: formData.message,
+          to_email: "Office@kellytaxpro.com", // Ensure email is sent to the correct address
         },
         "nBfBicFpWRcvOfL0k" // Your EmailJS public key
       )
@@ -43,7 +44,7 @@ const ContactSection = () => {
     <section id="contact" className="pt-8 pb-0 bg-gray-100">
       <div className="container mx-auto text-center mb-3 px-4 sm:px-6 pb-4">
         <h2 className="text-3xl font-bold mb-2 animate__animated animate__fadeInUp">
-          Contáctanos
+          Contáctenos
         </h2>
         <p className="text-gray-600 animate__animated animate__fadeInUp">
           Estaremos encantados de poder ayudarte
