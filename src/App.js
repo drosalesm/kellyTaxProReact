@@ -9,6 +9,7 @@ import Footer from './components/FooterSection'
 import ScheduleCard from './components/horarios';
 
 
+
 const App = () => {
     return (
         <div className='font-playfair bg-gray-100'>

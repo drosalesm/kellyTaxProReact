@@ -1,107 +1,106 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import Slider from "react-slick"; // Slider from react-slick
+import "slick-carousel/slick/slick.css"; // Import slick styles
+import "slick-carousel/slick/slick-theme.css";
 
-const HomeSection = () => {
-  // State to keep track of the current slide index
-  const [currentSlide, setCurrentSlide] = useState(0);
+const Header = () => {
+  // Slider settings
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    adaptiveHeight: true,
+    arrows: false,
+  };
 
-  // Array of images for the slides
-  const slides = [
-    {
-      id: 1,
-      src: "/assets/img/kellyTeam.jpg", // First slide image
-      alt: "First slide",
-    },
-    {
-      id: 2,
-      src: "/assets/img/kellyTeam2.jpg", // Second slide image
-      alt: "Second slide",
-    },
-    {
-      id: 3,
-      src: "/assets/img/kellyTeam3.JPEG", // Third slide image
-      alt: "Third slide",
-    },
+  // Example images for the slider
+  const sliderImages = [
+    "/assets/img/kellyTeam_mod.jpg",
+    "/assets/img/kellyTeam2_mod.jpg",
+    "/assets/img/kellyTeam3_mod.jpg",
   ];
 
-  // Function to go to the previous slide
-  const handlePrev = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
-
-  // Function to go to the next slide
-  const handleNext = () => {
-    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
-
-  // Effect to automatically change the slide every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, 5000); // Change slide every 5 seconds
-
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, [slides.length]);
-
   return (
-    <section
-      id="home"
-      className="flex flex-col md:flex-row items-stretch bg-gray-200 w-full h-[300px] lg:h-[400px] border-2 border-gray-300"
-    >
-      {/* Left Side: Centered image with responsive width (40% of content) */}
-      <div className="md:w-2/5 order-2 md:order-1 flex justify-center items-center h-full">
-        <img
-          src="/assets/img/logo.png"
-          className="w-32 md:w-auto md:mb-4 p-2 mt-4 md:mt-0" // Adjust width for responsiveness
-          alt="Logo"
-        />
-      </div>
-
-      {/* Right Side: Carousel takes 60% of content */}
-      <div className="md:w-3/5 order-1 md:order-2 relative flex justify-center items-center h-full overflow-hidden">
-        {/* Carousel Wrapper */}
-        <div className="relative w-full h-full">
-          {/* Carousel Items */}
-          {slides.map((slide, index) => (
+    <header className="h-[80vh] md:h-[70vh] flex flex-col-reverse md:flex-row bg-gray-100">
+      {/* Right Column: Slider (moves to top on small devices) */}
+      <div className="md:w-1/2 w-full flex items-center justify-center bg-white relative">
+        <Slider {...settings} className="w-full h-full">
+          {sliderImages.map((imgSrc, index) => (
             <div
-              key={slide.id}
-              className={`absolute top-0 left-0 transition-transform duration-500 ease-in-out ${
-                index === currentSlide ? "opacity-100" : "opacity-0"
-              }`}
-              style={{
-                transform: index === currentSlide ? "translateX(0)" : "translateX(100%)",
-                height: "100%", // Ensuring the height covers the full wrapper
-                width: "100%", // Ensuring the width covers the full wrapper
-              }}
+              key={index}
+              className="h-[35vh] md:h-[70vh] flex justify-center items-center"
             >
               <img
-                src={slide.src}
-                alt={slide.alt}
-                className="w-full h-full object-cover" // Keep full width and height
-                style={{ objectFit: "cover" }} // Ensure the image covers the height
+                src={imgSrc}
+                alt={`Slide ${index + 1}`}
+                className="w-full h-full object-contain transition-all duration-500"
               />
             </div>
           ))}
-
-          {/* Navigation Buttons */}
-          <button
-            type="button"
-            className="absolute inset-y-0 left-0 flex items-center justify-center w-10 h-full bg-gray-800 text-white rounded-l-lg hover:bg-gray-700"
-            onClick={handlePrev}
-          >
-            &#10094;
-          </button>
-
-          <button
-            type="button"
-            className="absolute inset-y-0 right-0 flex items-center justify-center w-10 h-full bg-gray-800 text-white rounded-r-lg hover:bg-gray-700"
-            onClick={handleNext}
-          >
-            &#10095;
-          </button>
-        </div>
+        </Slider>
       </div>
-    </section>
+
+      {/* Left Column: Static Image (moves to bottom on small devices) */}
+      <div className="md:w-1/2 w-full flex items-center justify-center">
+        <img
+          src="/assets/img/logo.png"
+          alt="Static Header Image"
+          className="w-3/4 md:w-full h-auto object-contain" // Smaller on mobile with 'w-3/4'
+        />
+      </div>
+
+      {/* Custom Styles */}
+      <style jsx>{`
+        .slick-dots {
+          bottom: 10px;
+        }
+
+        .slick-dots li button:before {
+          font-size: 18px;
+          color: rgba(0, 0, 0, 0.5);
+          opacity: 1;
+        }
+
+        .slick-dots li.slick-active button:before {
+          color: #000;
+        }
+
+        /* Prevent border or flickering during transition */
+        .slick-slide {
+          padding: 0;
+          margin: 0;
+          border: none;
+          outline: none;
+        }
+
+        .slick-slide img {
+          border: none;
+          outline: none;
+          box-shadow: none;
+        }
+
+        /* Extra rules to ensure no overflow and image scaling */
+        .slick-list {
+          overflow: hidden;
+        }
+
+        .slick-track {
+          display: flex;
+        }
+
+        /* Fix border when image scaling happens */
+        .slick-slide div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      `}</style>
+    </header>
   );
 };
 
-export default HomeSection;
+export default Header;
