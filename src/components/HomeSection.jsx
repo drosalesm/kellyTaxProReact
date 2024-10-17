@@ -51,7 +51,7 @@ const HomeSection = () => {
       <div className="md:w-2/5 order-2 md:order-1 flex justify-center items-center h-full">
         <img
           src="/assets/img/logo.png"
-          className="w-32 md:w-auto mb-4 p-2 mt-4 md:mt-0" // Adjust width for responsiveness
+          className="w-32 md:w-auto md:mb-4 p-2 mt-4 md:mt-0" // Adjust width for responsiveness
           alt="Logo"
         />
       </div>
