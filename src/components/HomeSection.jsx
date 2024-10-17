@@ -25,9 +25,9 @@ const Header = () => {
   ];
 
   return (
-    <header className="h-[80vh] md:h-[70vh] flex flex-col-reverse md:flex-row bg-gray-100">
+    <header className="h-[80vh] md:h-[70vh] flex flex-col-reverse md:flex-row bg-gray-100 mb-8">
       {/* Left Column: Static Image */}
-      <div className="md:w-1/2 w-full flex items-center justify-center bg-white shadow-md shadow-gray-500">
+      <div className="md:w-1/2 w-full flex items-center justify-center bg-white shadow-sm shadow-gray-500">
         <img
           src="/assets/img/logo.png"
           alt="Static Header Image"
@@ -36,7 +36,7 @@ const Header = () => {
       </div>
 
       {/* Right Column: Slider */}
-      <div className="md:w-1/2 w-full flex items-center justify-center bg-white relative md:shadow-md md:shadow-gray-500">
+      <div className="md:w-1/2 w-full flex items-center justify-center bg-white relative md:shadow-sm md:shadow-gray-500">
 
         <Slider {...settings} className="w-full h-full">
           {sliderImages.map((imgSrc, index) => (
@@ -57,7 +57,7 @@ const Header = () => {
       {/* Custom Styles */}
       <style jsx>{`
         .slick-dots {
-          bottom: 10px;
+          bottom: 15px;
         }
 
         .slick-dots li button:before {
@@ -67,7 +67,7 @@ const Header = () => {
         }
 
         .slick-dots li.slick-active button:before {
-          color: #000;
+          color: #0d9488; /* Tailwind teal-600 color hex code */
         }
 
         /* Prevent border or flickering during transition */
