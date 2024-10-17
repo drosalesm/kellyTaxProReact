@@ -26,31 +26,32 @@ const Header = () => {
 
   return (
     <header className="h-[80vh] md:h-[70vh] flex flex-col-reverse md:flex-row bg-gray-100">
-      {/* Right Column: Slider (moves to top on small devices) */}
-      <div className="md:w-1/2 w-full flex items-center justify-center bg-white relative">
+      {/* Left Column: Static Image */}
+      <div className="md:w-1/2 w-full flex items-center justify-center bg-white shadow-md shadow-gray-500">
+        <img
+          src="/assets/img/logo.png"
+          alt="Static Header Image"
+          className="w-[70%] h-auto object-contain" // Reduced width to 70% for smaller size
+        />
+      </div>
+
+      {/* Right Column: Slider */}
+      <div className="md:w-1/2 w-full flex items-center justify-center bg-white relative md:shadow-md md:shadow-gray-500">
+
         <Slider {...settings} className="w-full h-full">
           {sliderImages.map((imgSrc, index) => (
             <div
               key={index}
-              className="h-[35vh] md:h-[70vh] flex justify-center items-center"
+              className="h-[35vh] md:h-[70vh] flex justify-center items-center "
             >
               <img
                 src={imgSrc}
                 alt={`Slide ${index + 1}`}
-                className="w-full h-full object-contain transition-all duration-500"
-              />
+                className="w-full h-full object-contain transition-all duration-500" 
+                />
             </div>
           ))}
         </Slider>
-      </div>
-
-      {/* Left Column: Static Image (moves to bottom on small devices) */}
-      <div className="md:w-1/2 w-full flex items-center justify-center">
-        <img
-          src="/assets/img/logo.png"
-          alt="Static Header Image"
-          className="w-3/4 md:w-full h-auto object-contain" // Smaller on mobile with 'w-3/4'
-        />
       </div>
 
       {/* Custom Styles */}
