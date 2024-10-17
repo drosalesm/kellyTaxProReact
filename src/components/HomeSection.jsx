@@ -25,7 +25,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="h-[65vh] md:h-[70vh] flex flex-col-reverse md:flex-row bg-gray-100 mb-8">
+    <header className="h-full md:h-[70vh] flex flex-col-reverse md:flex-row bg-gray-100 mb-8">
       {/* Left Column: Static Image */}
       <div className="md:w-1/2 w-full flex items-center justify-center bg-white shadow-sm shadow-gray-500">
         <img
