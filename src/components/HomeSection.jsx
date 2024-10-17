@@ -25,7 +25,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="h-[80vh] md:h-[70vh] flex flex-col-reverse md:flex-row bg-gray-100 mb-8">
+    <header className="h-[65vh] md:h-[70vh] flex flex-col-reverse md:flex-row bg-gray-100 mb-8">
       {/* Left Column: Static Image */}
       <div className="md:w-1/2 w-full flex items-center justify-center bg-white shadow-sm shadow-gray-500">
         <img
@@ -36,13 +36,13 @@ const Header = () => {
       </div>
 
       {/* Right Column: Slider */}
-      <div className="md:w-1/2 w-full flex items-center justify-center bg-white relative md:shadow-sm md:shadow-gray-500">
+      <div className="md:w-1/2 w-full flex items-center justify-center bg-white relative md:shadow-sm md:shadow-gray-500 sm:shadow-none">
 
         <Slider {...settings} className="w-full h-full">
           {sliderImages.map((imgSrc, index) => (
             <div
               key={index}
-              className="h-[35vh] md:h-[70vh] flex justify-center items-center "
+              className="h-[35vh] md:h-[70vh] flex justify-center items-center sm:p-0 sm:m-0"
             >
               <img
                 src={imgSrc}
