@@ -7,7 +7,7 @@ import About from './components/AboutSection'
 import Contact from './components/ContactSection'
 import Footer from './components/FooterSection'
 import ScheduleCard from './components/horarios';
-
+import Personnel from './components/Personnel';
 
 
 const App = () => {
@@ -18,6 +18,7 @@ const App = () => {
             <ScheduleCard />
             <Services />                        
             <About />
+            <Personnel />            
             <Contact />
             <Footer />                                    
         </div>

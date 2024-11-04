@@ -47,22 +47,22 @@ const ContactSection = () => {
   return (
     <section id="contact" className="pt-8 pb-0 bg-gray-100 relative">
       <div className="container mx-auto text-center mb-3 px-4 sm:px-6 pb-4">
-        <h2 className="text-3xl font-bold mb-2 animate__animated animate__fadeInUp">
+        <h2 className="text-4xl font-bold mb-2 animate__animated animate__fadeInUp">
           Contáctenos
         </h2>
-        <p className="text-gray-600 animate__animated animate__fadeInUp">
+        <p className="text-teal-600 text-2xl animate__animated animate__fadeInUp">
           Estaremos encantados de poder ayudarte
         </p>
       </div>
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row gap-8">
           <div className="md:w-5/12">
-            <h3 className="text-xl font-semibold mb-4 animate__animated animate__fadeInUp">
+            <h3 className="text-3xl font-semibold mb-4 animate__animated animate__fadeInUp">
               Escríbenos
             </h3>
             <form onSubmit={sendEmail} className="space-y-4">
               <div>
-                <label className="block text-gray-700 mb-1" htmlFor="name">
+                <label className="block mb-1 font-bold" htmlFor="name">
                   Nombre
                 </label>
                 <input
@@ -76,7 +76,7 @@ const ContactSection = () => {
                 />
               </div>
               <div>
-                <label className="block text-gray-700 mb-1" htmlFor="phone">
+                <label className="block text-gray-700 mb-1 font-bold" htmlFor="phone">
                   Teléfono
                 </label>
                 <input
@@ -90,7 +90,7 @@ const ContactSection = () => {
                 />
               </div>
               <div>
-                <label className="block text-gray-700 mb-1" htmlFor="message">
+                <label className="block text-gray-700 mb-1 font-bold" htmlFor="message">
                   Mensaje
                 </label>
                 <textarea
@@ -115,7 +115,7 @@ const ContactSection = () => {
           {/* Map and Video Column - 60% */}
           <div className="md:w-7/12">
             <div className="bg-white shadow-lg rounded-lg p-4 mb-6">
-              <h4 className="text-lg font-semibold mb-2">Nuestra Ubicación</h4>
+              <h4 className="text-xl font-semibold mb-2">Nuestra Ubicación</h4>
               <iframe
                 src="https://www.youtube.com/embed/UDfKnhzWKz0"
                 width="100%"

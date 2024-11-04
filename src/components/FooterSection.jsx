@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-teal-600 text-white py-4 mt-6">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <div className="mb-4 md:mb-0">
+        <div className="mb-4 md:mb-0 text-2xl">
           <p>&copy; {currentYear} Kelly Tax Pro</p>
         </div>
         <div className="flex space-x-4 flex-grow justify-center">
@@ -21,7 +21,7 @@ const Footer = () => {
               alt="Phone"
               className="w-6 h-6 mr-2" // Add margin to the right of the icon
             />
-            <span className="text-sm">516-414-4765 </span>{" "}
+            <span className="text-xl">516-414-4765 </span>{" "}
             {/* Change this to your phone number */}
           </a>
           <a
@@ -35,7 +35,7 @@ const Footer = () => {
               alt="WhatsApp"
               className="w-6 h-6"
             />
-            <span className="text-sm">&nbsp;Whatsapp </span>{" "}
+            <span className="text-xl">&nbsp;Whatsapp </span>{" "}
 
           </a>
         </div>

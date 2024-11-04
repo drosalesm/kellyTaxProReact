@@ -5,6 +5,7 @@ import ContactMailIcon from "@mui/icons-material/ContactMail";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
+import GroupIcon from "@mui/icons-material/Group"; 
 import { Link } from "react-scroll"; // Import the react-scroll Link
 
 const Header = () => {
@@ -15,23 +16,19 @@ const Header = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Close mobile menu if window is resized beyond mobile breakpoint
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setIsMobileMenuOpen(false);
       }
     };
-
     window.addEventListener("resize", handleResize);
 
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  // Show the scroll to top button when scrolled down 300 pixels
   const handleScroll = () => {
     if (window.scrollY > 300) {
       setShowScrollToTop(true);
@@ -59,9 +56,9 @@ const Header = () => {
       {/* Main Navbar */}
       <nav className="bg-teal-600 p-5 text-white">
         <div className="flex justify-between items-center font-serif">
-          <div className="text-3xl">Kelly Tax Pro</div>
+          <div className="text-5xl">Kelly Tax Pro</div>
           {/* Desktop Menu */}
-          <ul className="hidden md:flex space-x-6">
+          <ul className="hidden md:flex space-x-6 text-xl">
             <li className="flex items-center space-x-1">
               <Link
                 to="home"
@@ -93,6 +90,17 @@ const Header = () => {
               >
                 <InfoIcon />
                 <span>Acerca de Nosotros</span>
+              </Link>
+            </li>
+            <li className="flex items-center space-x-1">
+              <Link
+                to="personnel" 
+                smooth={true}
+                duration={500}
+                className="hover:text-gray-900 flex items-center space-x-1 cursor-pointer"
+              >
+                <GroupIcon />
+                <span>Personal</span>
               </Link>
             </li>
             <li className="flex items-center space-x-1">
@@ -153,7 +161,19 @@ const Header = () => {
                   className="hover:text-gray-900 cursor-pointer"
                   onClick={toggleMobileMenu}
                 >
-                  Acerca de nosotros
+                  Acerca de Nosotros
+                </Link>
+              </li>
+              <li className="flex items-center space-x-1">
+                <GroupIcon />
+                <Link
+                  to="personnel"
+                  smooth={true}
+                  duration={500}
+                  className="hover:text-gray-900 cursor-pointer"
+                  onClick={toggleMobileMenu}
+                >
+                  Personal
                 </Link>
               </li>
               <li className="flex items-center space-x-1">
@@ -169,7 +189,6 @@ const Header = () => {
                 </Link>
               </li>
             </ul>
-            {/* Close button placed below the menu options */}
             <button
               onClick={toggleMobileMenu}
               className="mt-4 w-full text-white flex justify-center"
@@ -184,7 +203,7 @@ const Header = () => {
       {showScrollToTop && (
         <div className="fixed bottom-5 right-5 z-50 hidden md:block">
           <Link
-            to="home" // Adjust this to the section you want to scroll back to
+            to="home"
             smooth={true}
             duration={500}
             className="bg-teal-600 text-white p-3 rounded-full shadow-lg hover:bg-slate-600 transition duration-300"
