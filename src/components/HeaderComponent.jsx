@@ -231,28 +231,28 @@ const Header = () => {
               Llámanos ahora o envíanos un mensaje por WhatsApp.
             </p>
 
-            <div className="flex justify-center items-center mb-4">
+            <div className="flex justify-center items-center mb-4 hover:bg-teal-900 p-3 rounded transition duration-300">
               <span className="text-white text-xl mr-2">
                 <PhoneIcon />
               </span>
 
               <a href="tel:+1234567890" className="text-white text-xl">
-                <span className="text-xl">516-414-4765 </span>{" "}
+                <span className="text-xl ">516-414-4765 </span>{" "}
               </a>
             </div>
 
             {/* WhatsApp Button */}
             <a
-              href="https://wa.me/1234567890"
+              href="http://wa.me/15165657645"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white flex justify-center items-center bg-green-500 p-3 rounded-full w-full hover:bg-green-600 transition duration-300"
+              className="text-white flex justify-center items-center bg-green-500 p-3 rounded  hover:bg-green-600 transition duration-300"
             >
               <WhatsAppIcon className="mr-2" />
               WhatsApp
             </a>
             <div
-              className="text-white cursor-pointer text-6xl mt-5"
+              className="text-white cursor-pointer text-6xl mt-6"
               onClick={toggleModal}
             >
               <CancelIcon />
