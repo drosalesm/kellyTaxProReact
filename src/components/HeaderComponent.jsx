@@ -261,7 +261,7 @@ const Header = () => {
               className="text-white mt-4 cursor-pointer"
               onClick={toggleModal}
             >
-              Cerrar
+              <CancelIcon />
             </div>
           </div>
         </div>
