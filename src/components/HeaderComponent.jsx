@@ -3,19 +3,18 @@ import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import MenuIcon from "@mui/icons-material/Menu";
-
-import CancelIcon from "@mui/icons-material/Cancel"; // Import CancelIcon
-import PhoneIcon from "@mui/icons-material/Phone"; // Import PhoneIcon
-
+import CancelIcon from "@mui/icons-material/Cancel";
+import PhoneIcon from "@mui/icons-material/Phone";
 import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
 import GroupIcon from "@mui/icons-material/Group";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp"; // Add WhatsApp Icon
-import { Link } from "react-scroll"; // Import the react-scroll Link
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { Link } from "react-scroll";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showContactButton, setShowContactButton] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAtBottom, setIsAtBottom] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -39,6 +38,16 @@ const Header = () => {
   }, []);
 
   const handleScroll = () => {
+    const scrollHeight = document.documentElement.scrollHeight;
+    const scrollPosition = window.innerHeight + window.scrollY;
+
+    // Check if user is at the bottom
+    if (scrollPosition >= scrollHeight - 10) {
+      setIsAtBottom(true);
+    } else {
+      setIsAtBottom(false);
+    }
+
     if (window.scrollY > 300) {
       setShowContactButton(true);
     } else {
@@ -209,7 +218,7 @@ const Header = () => {
       )}
 
       {/* Contact Button on Phone Devices */}
-      {showContactButton && (
+      {!isAtBottom && showContactButton && (
         <div className="fixed bottom-5 right-5 z-50 md:hidden">
           <button
             onClick={toggleModal}
@@ -224,8 +233,6 @@ const Header = () => {
       {isModalOpen && (
         <div className="md:hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center z-50">
           <div className="bg-teal-600 p-8 rounded shadow-lg w-full max-w-md text-center">
-            {/* Close button below WhatsApp */}
-
             <h2 className="text-2xl text-white mb-4">Contactenos</h2>
             <p className="text-white mb-4">
               Llámanos ahora o envíanos un mensaje por WhatsApp.
@@ -235,9 +242,8 @@ const Header = () => {
               <span className="text-white text-xl mr-2">
                 <PhoneIcon />
               </span>
-
               <a href="tel:+5164144765" className="text-white text-xl">
-                <span className="text-xl ">516-414-4765 </span>{" "}
+                516-414-4765
               </a>
             </div>
 
@@ -246,16 +252,16 @@ const Header = () => {
               href="http://wa.me/15165657645"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white flex justify-center items-center bg-green-500 p-3 rounded  hover:bg-green-600 transition duration-300"
+              className="text-white flex justify-center items-center bg-green-500 p-3 rounded hover:bg-green-600 transition duration-300"
             >
               <WhatsAppIcon className="mr-2" />
               WhatsApp
             </a>
             <div
-              className="text-white cursor-pointer text-6xl mt-6"
+              className="text-white mt-4 cursor-pointer"
               onClick={toggleModal}
             >
-              <CancelIcon />
+              Cerrar
             </div>
           </div>
         </div>
