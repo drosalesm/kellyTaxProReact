@@ -234,11 +234,11 @@ const Header = () => {
         <div className="md:hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center z-50">
           <div className="bg-teal-600 p-8 rounded shadow-lg w-full max-w-md text-center">
             <h2 className="text-2xl text-white mb-4">Contactenos</h2>
-            <p className="text-white mb-4">
-              Llámanos ahora o envíanos un mensaje por WhatsApp.
+            <p className="text-white mb-2">
+              Llamar oficina:
             </p>
 
-            <div className="flex justify-center items-center mb-4 hover:bg-teal-900 p-3 rounded transition duration-300">
+            <div className="flex justify-center items-center bg-blue-900 mb-4 hover:bg-gray-900 p-3 rounded transition duration-300">
               <span className="text-white text-xl mr-2">
                 <PhoneIcon />
               </span>
@@ -247,7 +247,10 @@ const Header = () => {
               </a>
             </div>
 
-            {/* WhatsApp Button */}
+            <p className="text-white mb-2">
+              Mensaje a celular:
+            </p>
+
             <a
               href="http://wa.me/15165657645"
               target="_blank"
