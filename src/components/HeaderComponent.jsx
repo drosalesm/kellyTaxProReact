@@ -242,7 +242,7 @@ const Header = () => {
               <span className="text-white text-xl mr-2">
                 <PhoneIcon />
               </span>
-              <a href="tel:+5164144765" className="text-white text-xl">
+              <a href="tel:5164144765" className="text-white text-xl">
                 516-414-4765
               </a>
             </div>
