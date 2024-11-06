@@ -235,9 +235,8 @@ const Header = () => {
           <div className="bg-teal-600 p-8 rounded shadow-lg w-full max-w-md text-center">
             <h2 className="text-2xl text-white mb-4">Contactenos</h2>
             <p className="text-white mb-2">
-              Llamar oficina:
+              Llamar Oficina:
             </p>
-
             <div className="flex justify-center items-center bg-blue-900 mb-4 hover:bg-gray-900 p-3 rounded transition duration-300">
               <span className="text-white text-xl mr-2">
                 <PhoneIcon />
@@ -248,9 +247,8 @@ const Header = () => {
             </div>
 
             <p className="text-white mb-2">
-              Mensaje a celular:
+              Mensaje a Celular:
             </p>
-
             <a
               href="http://wa.me/15165657645"
               target="_blank"
