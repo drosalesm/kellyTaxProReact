@@ -11,7 +11,7 @@ const Footer = () => {
         </div>
         <div className="flex space-x-4 flex-grow justify-center">
           <a
-            href="tel:+1234567890" // Change this to your phone number
+            href="tel:+5164144765" // Change this to your phone number
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center text-white hover:text-blue-400"
