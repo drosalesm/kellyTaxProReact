@@ -3,17 +3,26 @@ import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
+
+import CancelIcon from "@mui/icons-material/Cancel"; // Import CancelIcon
+import PhoneIcon from "@mui/icons-material/Phone"; // Import PhoneIcon
+
 import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
-import GroupIcon from "@mui/icons-material/Group"; 
+import GroupIcon from "@mui/icons-material/Group";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp"; // Add WhatsApp Icon
 import { Link } from "react-scroll"; // Import the react-scroll Link
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showScrollToTop, setShowScrollToTop] = useState(false);
+  const [showContactButton, setShowContactButton] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
   };
 
   useEffect(() => {
@@ -31,9 +40,9 @@ const Header = () => {
 
   const handleScroll = () => {
     if (window.scrollY > 300) {
-      setShowScrollToTop(true);
+      setShowContactButton(true);
     } else {
-      setShowScrollToTop(false);
+      setShowContactButton(false);
     }
   };
 
@@ -94,7 +103,7 @@ const Header = () => {
             </li>
             <li className="flex items-center space-x-1">
               <Link
-                to="personnel" 
+                to="personnel"
                 smooth={true}
                 duration={500}
                 className="hover:text-gray-900 flex items-center space-x-1 cursor-pointer"
@@ -193,23 +202,62 @@ const Header = () => {
               onClick={toggleMobileMenu}
               className="mt-4 w-full text-white flex justify-center"
             >
-              <CloseIcon />
+              <CancelIcon />
             </button>
           </div>
         </div>
       )}
 
-      {/* Scroll to Top Button */}
-      {showScrollToTop && (
-        <div className="fixed bottom-5 right-5 z-50 hidden md:block">
-          <Link
-            to="home"
-            smooth={true}
-            duration={500}
+      {/* Contact Button on Phone Devices */}
+      {showContactButton && (
+        <div className="fixed bottom-5 right-5 z-50 md:hidden">
+          <button
+            onClick={toggleModal}
             className="bg-teal-600 text-white p-3 rounded-full shadow-lg hover:bg-slate-600 transition duration-300"
           >
-            ↑
-          </Link>
+            Contactenos
+          </button>
+        </div>
+      )}
+
+      {/* Contact Modal */}
+      {isModalOpen && (
+        <div className="md:hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center z-50">
+          <div className="bg-teal-600 p-8 rounded shadow-lg w-full max-w-md text-center">
+            {/* Close button below WhatsApp */}
+
+            <h2 className="text-2xl text-white mb-4">Contactenos</h2>
+            <p className="text-white mb-4">
+              Llámanos ahora o envíanos un mensaje por WhatsApp.
+            </p>
+
+            <div className="flex justify-center items-center mb-4">
+              <span className="text-white text-xl mr-2">
+                <PhoneIcon />
+              </span>
+
+              <a href="tel:+1234567890" className="text-white text-xl">
+                <span className="text-xl">516-414-4765 </span>{" "}
+              </a>
+            </div>
+
+            {/* WhatsApp Button */}
+            <a
+              href="https://wa.me/1234567890"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white flex justify-center items-center bg-green-500 p-3 rounded-full w-full hover:bg-green-600 transition duration-300"
+            >
+              <WhatsAppIcon className="mr-2" />
+              WhatsApp
+            </a>
+            <div
+              className="text-white cursor-pointer text-6xl mt-5"
+              onClick={toggleModal}
+            >
+              <CancelIcon />
+            </div>
+          </div>
         </div>
       )}
     </header>
