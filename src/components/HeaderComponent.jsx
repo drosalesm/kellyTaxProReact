@@ -15,7 +15,7 @@ const Header = () => {
   const [showContactButton, setShowContactButton] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAtBottom, setIsAtBottom] = useState(false);
-
+ const [showUpButton, setShowUpButton] = useState(false); // State for the up button
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
