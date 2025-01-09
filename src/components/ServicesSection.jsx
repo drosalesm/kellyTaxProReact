@@ -17,7 +17,7 @@ const getRandomAnimation = () => {
 // Updated services array to include imageUrl
 const services = [
   { 
-    title: 'Taxes', 
+    title: 'TAXES', 
     subtitle: '', 
     description: 'ITIN, Auditorias, Acuerdos de Pago, Enmiendas, Récord de Taxes, ID.me, Llamadas al IRS, Asesoría',
     imageUrl: '/assets/img/Services/taxes.png' // Path to Taxes image
@@ -25,37 +25,37 @@ const services = [
   { 
     title: 'USCIS', 
     subtitle: '', 
-    description: 'Ciudadanías, Residencias, TPS, Asesoría de Visas', 
+    description: 'Ciudadanías, Residencias, TPS, Asilo,DACA,Permiso de viaje (PAROLE), Creacion de cuentas USCIS', 
     imageUrl: '/assets/img/Services/USCIS.png' // Path to USCIS image
   },
   { 
-    title: 'Cartas', 
+    title: 'CARTAS', 
     subtitle: '', 
-    description: 'Asistencia con Cartas Oficiales, Documentación', 
+    description: 'Asistencia con Cartas Oficiales,Personales,Renta,Trabajo,Referencia,Carga Poder, Apostilla', 
     imageUrl: '/assets/img/Services/carta.jfif' // Path to Cartas image
   },
   { 
     title: 'DMV', 
     subtitle: '', 
-    description: 'Licencias de Conducir, Renovación de Matrículas', 
+    description: 'Citas,Licencias de Conducir, Renovación de Matrículas,Registraciones,Placas de vehiculos,Venta/Donacion,Cambios de direccion,Pago de tickets', 
     imageUrl: '/assets/img/Services/licence.png' // Path to DMV image
   },  
   { 
-    title: 'Social Security', 
+    title: 'SOCIAL SECURITY', 
     subtitle: '', 
-    description: 'Procesos de Seguridad Social, Apoyo en Beneficios',
+    description: 'Procesos de Seguridad Social, Apoyo en Beneficios,Retiro,Incapacidad,Record de trabajo',
     imageUrl: '/assets/img/Services/socialsec.png' // Path to Social Security image
   },   
   { 
-    title: 'Social Services', 
+    title: 'SOCIAL SERVICES', 
     subtitle: '', 
-    description: 'Guía de Servicios Sociales, Apoyo en Programas', 
+    description: 'Guía de Servicios Sociales, Apoyo en Programas,Asistencia publica,Medicare,EBT CARD', 
     imageUrl: '/assets/img/Services/socialservice.png' // Path to Social Service image
   },       
   { 
-    title: 'Departamento de Labor', 
+    title: 'DEPARTAMENTO DE LABOR', 
     subtitle: '', 
-    description: 'Formalidades del Departamento de Labor', 
+    description: 'Desempleo,ID.ME,Questionarios', 
     imageUrl: '/assets/img/Services/labor.png' // Path to Departamento de Labor image
   },         
 ];
