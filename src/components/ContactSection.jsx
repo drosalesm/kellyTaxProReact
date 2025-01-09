@@ -48,10 +48,10 @@ const ContactSection = () => {
     <section id="contact" className="pt-8 pb-0 bg-gray-100 relative">
       <div className="container mx-auto text-center mb-3 px-4 sm:px-6 pb-4">
         <h2 className="text-4xl font-bold mb-2 animate__animated animate__fadeInUp">
-          Contáctenos
+        Contáctenos !
         </h2>
         <p className="text-teal-600 text-2xl animate__animated animate__fadeInUp">
-          Estaremos encantados de poder ayudarte
+        ¡ Estaremos encantados de poder ayudarte !
         </p>
       </div>
       <div className="container mx-auto px-4 sm:px-6">
@@ -62,9 +62,7 @@ const ContactSection = () => {
             </h3>
             <form onSubmit={sendEmail} className="space-y-4">
               <div>
-                <label className="block mb-1 font-bold" htmlFor="name">
-                  Nombre
-                </label>
+                <h4 className="text-xl font-bold mb-4 animate__animated animate__fadeInUp">Nombre</h4>
                 <input
                   type="text"
                   name="name"
@@ -76,9 +74,7 @@ const ContactSection = () => {
                 />
               </div>
               <div>
-                <label className="block text-gray-700 mb-1 font-bold" htmlFor="phone">
-                  Teléfono
-                </label>
+              <h4 className="text-xl font-bold mb-4 animate__animated animate__fadeInUp">Telefono</h4>
                 <input
                   type="tel"
                   name="phone"
@@ -90,9 +86,7 @@ const ContactSection = () => {
                 />
               </div>
               <div>
-                <label className="block text-gray-700 mb-1 font-bold" htmlFor="message">
-                  Mensaje
-                </label>
+              <h4 className="text-xl font-bold mb-4 animate__animated animate__fadeInUp">Mensaje</h4>
                 <textarea
                   name="message"
                   value={formData.message}
