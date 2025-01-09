@@ -15,7 +15,8 @@ const Header = () => {
   const [showContactButton, setShowContactButton] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAtBottom, setIsAtBottom] = useState(false);
- const [showUpButton, setShowUpButton] = useState(false); // State for the up button
+  const [showUpButton, setShowUpButton] = useState(false); // State for the up button
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -50,8 +51,10 @@ const Header = () => {
 
     if (window.scrollY > 300) {
       setShowContactButton(true);
+      setShowUpButton(true); // Show up button after scrolling down
     } else {
       setShowContactButton(false);
+      setShowUpButton(false); // Hide up button when near the top
     }
   };
 
@@ -61,6 +64,11 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // Scroll to the top
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <header>
@@ -229,14 +237,24 @@ const Header = () => {
         </div>
       )}
 
+      {/* Up Button */}
+      {showUpButton && (
+        <div className="fixed bottom-16 right-5 z-50">
+          <button
+            onClick={scrollToTop}
+            className="bg-teal-600 text-white p-3 mb-4 rounded-full shadow-lg hover:bg-slate-600 transition duration-300"
+          >
+            ↑
+          </button>
+        </div>
+      )}
+
       {/* Contact Modal */}
       {isModalOpen && (
         <div className="md:hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center z-50">
           <div className="bg-teal-600 p-8 rounded shadow-lg w-full max-w-md text-center">
             <h2 className="text-2xl text-white mb-4">Contactenos</h2>
-            <p className="text-white mb-2">
-              Llamar Oficina:
-            </p>
+            <p className="text-white mb-2">Llamar Oficina:</p>
             <div className="flex justify-center items-center bg-blue-900 mb-4 hover:bg-gray-900 p-3 rounded transition duration-300">
               <span className="text-white text-xl mr-2">
                 <PhoneIcon />
@@ -246,9 +264,7 @@ const Header = () => {
               </a>
             </div>
 
-            <p className="text-white mb-2">
-              Mensaje a Celular:
-            </p>
+            <p className="text-white mb-2">Mensaje a Celular:</p>
             <a
               href="http://wa.me/15165657645"
               target="_blank"
